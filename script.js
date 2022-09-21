@@ -12,7 +12,6 @@ const submitted = (e) => {
 
 const createTodo = () => {
     const value = input.value;
-    const todos = document.querySelector('.todos');
     const todo = document.createElement('div');
     todo.className = 'todo flex-reg';
     todo.innerHTML = `<h2>${value}</h2>
@@ -21,8 +20,15 @@ const createTodo = () => {
         <i class="fa-regular fa-circle-xmark"></i>
     </div>`;
     list.push(todo);
-    todos.appendChild(todo);
+    append();
     addFunctionality();
+};
+
+const append = () => {
+    const todos = document.querySelector('.todos');
+    for (let k = 0; k < list.length; k++) {
+        todos.appendChild(list[k]);
+    }
 };
 
 const addFunctionality = () => {
@@ -83,10 +89,11 @@ const drop = (e) => {
 };
 
 const swapItems = (fromIndex, toIndex) => {
+    const todos = document.querySelector('.todos');
     const itemOne = list[Number(fromIndex)];
     const itemTwo = list[Number(toIndex)];
-    list[fromIndex].appendChild(itemTwo);
-    list[toIndex].appendChild(itemOne);
+    todos.appendChild(list[fromIndex].appendChild(itemTwo));
+    todos.appendChild(list[toIndex].appendChild(itemOne));
 };
 
 const edit = (e) => {
