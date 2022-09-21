@@ -1,0 +1,127 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: 'Noto Serif', serif;
+}
+/* Variables */
+:root {
+    --trans-fast: 250ms ease-in-out;
+}
+/* Global styles */
+.width {
+    width: 100vw;
+    height: 100vh;
+}
+.flex-reg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Begin styles */
+body {
+    background-image: url('https://rare-gallery.com/mocahbig/478560-abstract-colorful-stripes-circle.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1 {
+    font-size: 4em;
+    padding-bottom: 1em;
+}
+.container {
+    width: 60vw;
+    height: 60vh;
+}
+form {
+    width: 50%;
+    height: 20%;
+}
+label {
+    font-size: 1.5em;
+    color: #000;
+    position: relative;
+}
+.input-container label {
+    align-self: flex-start;
+    padding: .25em .25em;
+}
+input {
+    font-size: 1.25em;
+    color: #000;
+    padding: .5em .75em;
+    margin: 0 .25em;
+    border-radius: .25em;
+    border: none;
+    outline: none;
+}
+button {
+    align-self: flex-end;
+    font-size: 1.25em;
+    border: none;
+    border-radius: .25em;
+    outline: none;
+    color: #000;
+    background-color: #fff;
+    padding: .5em 1.5em;
+    font-weight: 600;
+    transition: var(--trans-fast);
+}
+button:hover {
+    cursor: pointer;
+    scale: 1.025;
+}
+.todos {
+    margin-top: 2em;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: .75em;
+    overflow-y: auto;
+}
+.todos::-webkit-scrollbar {
+    width: 3px;
+}
+.todo {
+    margin: 1em 0;
+    min-width: 90%;
+    min-height: 25%;
+    border-radius: .5em;
+    background-image: linear-gradient(45deg, rgb(15, 123, 196), #f432ad);
+    justify-content: flex-start;
+    position: relative;
+}
+.todo:hover {
+    cursor: grab;
+}
+h2 {
+    font-size: 3em;
+    margin-left: 1em;
+    user-select: none;
+}
+h2.cross {
+    text-decoration: line-through;
+}
+i {
+    font-size: 2em;
+    margin: 0 .5em;
+    transition: var(--trans-fast);
+}
+.icons {
+    position: absolute;
+    right: 5%;
+}
+i:hover {
+    cursor: pointer;
+    color: #000;
+}
+.new-input {
+    margin-left: 1em;
+}
