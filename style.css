@@ -1,146 +1,169 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    color: #fff;
-    font-family: 'Noto Serif', serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Noto Serif", serif;
 }
 /* Variables */
 :root {
-    --trans-fast: 250ms ease-in-out;
+  --trans-fast: 250ms ease-in-out;
 }
 /* Global styles */
 .width {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 .flex-reg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .flex-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 /* Begin styles */
 body {
-    background-image: url('https://rare-gallery.com/mocahbig/478560-abstract-colorful-stripes-circle.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url("https://rare-gallery.com/mocahbig/478560-abstract-colorful-stripes-circle.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 h1 {
-    font-size: 4em;
-    padding-bottom: 1em;
+  font-size: 4em;
+  padding-bottom: 1em;
 }
 .container {
-    width: 60vw;
-    height: 60vh;
+  width: 60vw;
+  height: 60vh;
 }
 form {
-    width: 50%;
-    height: 20%;
+  width: 50%;
+  height: 20%;
 }
 label {
-    font-size: 1.5em;
-    color: #000;
-    position: relative;
+  font-size: 1.5em;
+  color: #000;
+  position: relative;
 }
 .input-container label {
-    align-self: flex-start;
-    padding: .25em .25em;
+  align-self: flex-start;
+  padding: 0.25em 0.25em;
 }
 input {
-    font-size: 1.25em;
-    color: #000;
-    padding: .5em .75em;
-    margin: 0 .25em;
-    border-radius: .25em;
-    border: none;
-    outline: none;
+  font-size: 1.25em;
+  color: #000;
+  padding: 0.5em 0.75em;
+  margin: 0 0.25em;
+  border-radius: 0.25em;
+  border: none;
+  outline: none;
 }
 button {
-    align-self: flex-end;
-    font-size: 1.25em;
-    border: none;
-    border-radius: .25em;
-    outline: none;
-    color: #000;
-    background-color: #fff;
-    padding: .5em 1.5em;
-    font-weight: 600;
-    transition: var(--trans-fast);
+  align-self: flex-end;
+  font-size: 1.25em;
+  border: none;
+  border-radius: 0.25em;
+  outline: none;
+  color: #000;
+  background-color: #fff;
+  padding: 0.5em 1.5em;
+  font-weight: 600;
+  transition: var(--trans-fast);
 }
 button:hover {
-    cursor: pointer;
-    scale: 1.025;
+  cursor: pointer;
+  scale: 1.025;
 }
 .todos {
-    position: relative;
-    padding: 1em 0;
-    margin-top: 2em;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    border-radius: .75em;
-    overflow-y: auto;
+  position: relative;
+  padding: 1em 0;
+  margin-top: 2em;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 0.75em;
+  overflow-y: auto;
 }
 .todos::-webkit-scrollbar {
-    width: 3px;
+  width: 3px;
 }
 .todo {
-    margin: 1em 0;
-    min-width: 75%;
-    min-height: 20%;
-    border-radius: .5em;
-    background-image: linear-gradient(45deg, rgb(15, 123, 196), #f432ad);
-    justify-content: flex-start;
-    position: relative;
-    transition: var(--trans-fast);
-    animation-name: scale;
-    animation-duration: 500ms;
+  margin: 1em 0;
+  min-width: 75%;
+  min-height: 20%;
+  border-radius: 0.5em;
+  background-image: linear-gradient(45deg, rgb(15, 123, 196), #f432ad);
+  justify-content: flex-start;
+  position: relative;
+  transition: var(--trans-fast);
+  animation-name: scale;
+  animation-duration: 500ms;
 }
 @keyframes scale {
-    0% {
-        scale: 0;
-    }
-    100% {
-        scale: 1;
-    }
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
 }
 .todo:hover {
-    cursor: grab;
+  cursor: grab;
 }
 .todo:active {
-    cursor: grabbing;
+  cursor: grabbing;
 }
 h2 {
-    font-size: 3em;
-    margin-left: 1em;
-    user-select: none;
+  font-size: 3em;
+  margin-left: 1em;
+  user-select: none;
 }
 h2.cross {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 i {
-    font-size: 2em;
-    margin: 0 .5em;
-    transition: var(--trans-fast);
+  font-size: 2em;
+  margin: 0 0.5em;
+  transition: var(--trans-fast);
 }
 .icons {
-    position: absolute;
-    right: 5%;
+  position: absolute;
+  right: 5%;
 }
 i:hover {
-    cursor: pointer;
-    color: #000;
+  cursor: pointer;
+  color: #000;
 }
 .new-input {
-    margin-left: 1em;
+  margin-left: 1em;
 }
 .over {
-    opacity: .5;
+  opacity: 0.5;
+}
+@media (min-width: 400px) and (max-width: 1000px) {
+  h1 {
+    text-align: center;
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  i {
+  	font-size: 1.25em;
+  }
+  .container {
+    width: 90vw;
+  }
+  .todos {
+    min-width: 100%;
+    min-height: 80%;
+  }
+  .todo {
+    width: 75%;
+    height: 10%;
+  }
 }
