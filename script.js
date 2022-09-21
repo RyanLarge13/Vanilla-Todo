@@ -1,5 +1,7 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
+let list = [];
+let dragStartIndex;
 
 const submitted = (e) => {
     e.preventDefault();
@@ -12,26 +14,14 @@ const createTodo = () => {
     const value = input.value;
     const todos = document.querySelector('.todos');
     const todo = document.createElement('div');
-    const icon1 = document.createElement('i');
-    const icon2 = document.createElement('i');
-    const iconContainer = document.createElement('div');
-    const heading = document.createElement('h2');
-    const elems = [iconContainer, heading, todo, todos];
-    todos.className = 'todos flex-col';
     todo.className = 'todo flex-reg';
-    iconContainer.className = 'icons';
-    icon1.className = 'fa-solid fa-pen-to-square';
-    icon2.className = 'fa-regular fa-circle-xmark';
-    iconContainer.appendChild(icon1);
-    iconContainer.appendChild(icon2);
-    heading.innerHTML = value;
-    append(elems);
-};
-
-const append = (elems) => {
-    elems[3].appendChild(elems[2]);
-    elems[2].appendChild(elems[1]);
-    elems[2].appendChild(elems[0]);
+    todo.innerHTML = `<h2>${value}</h2>
+    <div class="icons flex-reg">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <i class="fa-regular fa-circle-xmark"></i>
+    </div>`;
+    list.push(todo);
+    todos.appendChild(todo);
     addFunctionality();
 };
 
@@ -39,7 +29,6 @@ const addFunctionality = () => {
     const iconsX = document.querySelectorAll('.fa-circle-xmark');
     const iconsEdit = document.querySelectorAll('.fa-pen-to-square');
     const headings = document.querySelectorAll('.todo h2');
-    const allTodos = Array.from(document.querySelectorAll('.todo'));
     headings.forEach((heading) => {
         heading.addEventListener('dblclick', crossOut);
     })
@@ -49,27 +38,55 @@ const addFunctionality = () => {
     iconsEdit.forEach((icon) => {
         icon.addEventListener('click', edit);
     });
-    allTodos.forEach((todo) => {
-        todo.addEventListener('dragstart', start);
+    list.map((a => ({ value: a, sort: Math.random()}))).sort((a, b) => {
+        return a.sort - b.sort;
+    }).map(a => a.value).forEach((todo, index) => {
+        todo.setAttribute('draggable', true);
+        todo.setAttribute('data-index', index);
     });
-    allTodos.forEach((todo) => {
-        todo.addEventListener('dragmove', move);
-    });
-    allTodos.forEach((todo) => {
-        todo.addEventListener('dragend', updateList);
+    addDraglisteners();
+};
+
+const addDraglisteners = () => {
+    const allItems = document.querySelectorAll('.todo');
+    allItems.forEach((item) => {
+        item.addEventListener('dragstart', start);
+        item.addEventListener('dragover', over);
+        item.addEventListener('dragleave', leave);
+        item.addEventListener('dragenter', enter);
+        item.addEventListener('drop', drop);
     });
 };
 
 const start = (e) => {
+    // console.log('started);
+    dragStartIndex = e.target.closest('div').getAttribute('data-index');
+};
+
+const over = (e) => {
     e.preventDefault();
+    // console.log('over');
 };
 
-const move = (e) => {
-
+const leave = () => {
+    // console.log('left');
 };
 
-const updateList = (e) => {
+const enter = () => {
+    // console.log('entered');
+};
 
+const drop = (e) => {
+    // console.log('dropped');
+    const dragEndIndex = e.target.getAttribute('data-index');
+    swapItems(dragStartIndex, dragEndIndex);
+};
+
+const swapItems = (fromIndex, toIndex) => {
+    const itemOne = list[Number(fromIndex)];
+    const itemTwo = list[Number(toIndex)];
+    list[fromIndex].appendChild(itemTwo);
+    list[toIndex].appendChild(itemOne);
 };
 
 const edit = (e) => {
