@@ -32,6 +32,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+body::after {
+  content: '';
+  inset: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: rgba(0, 0, 0, .2);
+}
 h1 {
   font-size: 4em;
   padding-bottom: 1em;
@@ -46,12 +53,11 @@ form {
 }
 label {
   font-size: 1.5em;
-  color: #000;
+  color: #fff;
   position: relative;
 }
 .input-container label {
   align-self: flex-start;
-  padding: 0.25em 0.25em;
 }
 input {
   font-size: 1.25em;
@@ -87,6 +93,8 @@ button:hover {
   background-color: #000;
   border-radius: 0.75em;
   overflow-y: auto;
+  justify-content: flex-start;
+  box-shadow: 0 .1em .5em 0 #000;
 }
 .todos::-webkit-scrollbar {
   width: 3px;
@@ -96,12 +104,29 @@ button:hover {
   min-width: 75%;
   min-height: 20%;
   border-radius: 0.5em;
-  background-image: linear-gradient(45deg, rgb(15, 123, 196), #f432ad);
   justify-content: flex-start;
   position: relative;
   transition: var(--trans-fast);
   animation-name: scale;
   animation-duration: 500ms;
+}
+.todo:nth-child(6n + 1) {
+  background-image: linear-gradient(45deg, rgb(102, 241, 60), rgb(63, 255, 239));
+}
+.todo:nth-child(6n + 2) {
+  background-image: linear-gradient(45deg, rgb(241, 60, 60), rgb(255, 149, 63));
+}
+.todo:nth-child(6n + 3) {
+  background-image: linear-gradient(45deg, rgb(205, 60, 241), rgb(255, 63, 153));
+}
+.todo:nth-child(6n + 4) {
+  background-image: linear-gradient(45deg, rgb(241, 238, 60), rgb(153, 159, 252));
+}
+.todo:nth-child(6n + 5) {
+  background-image: linear-gradient(45deg, rgb(54, 248, 158), rgb(63, 249, 255));
+}
+.todo:nth-child(6n + 6) {
+  background-image: linear-gradient(45deg, rgb(253, 58, 221), rgb(230, 241, 241));
 }
 @keyframes scale {
   0% {
@@ -121,14 +146,20 @@ h2 {
   font-size: 3em;
   margin-left: 1em;
   user-select: none;
+  color: #000;
 }
 h2.cross {
   text-decoration: line-through;
+  color: rgb(255, 255, 255);
+}
+h2:hover {
+  cursor: default;
 }
 i {
   font-size: 2em;
   margin: 0 0.5em;
   transition: var(--trans-fast);
+  color: #000;
 }
 .icons {
   position: absolute;
@@ -136,10 +167,14 @@ i {
 }
 i:hover {
   cursor: pointer;
-  color: #000;
+  color: #fff;
 }
 .new-input {
   margin-left: 1em;
+  max-height: 60%;
+  max-width: 40%;
+  padding: .25em;
+  font-size: 1em;
 }
 .over {
   opacity: 0.5;
@@ -165,5 +200,29 @@ i:hover {
   .todo {
     width: 75%;
     height: 10%;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1500px) {
+  h1 {
+    text-align: center;
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  i {
+  	font-size: 1.25em;
+  }
+  .container {
+    width: 90vw;
+  }
+  .todos {
+    min-width: 100%;
+    min-height: 80%;
+  }
+  .todo {
+    width: 75%;
+    min-height: 50px;
+    height: 15%;
   }
 }

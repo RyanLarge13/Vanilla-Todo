@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 let list = [];
 let dragStartIndex;
+console.log(window.innerWidth)
 
 const submitted = (e) => {
   e.preventDefault();
@@ -94,10 +95,8 @@ const drop = (e) => {
 
 const swapItems = (fromIndex, toIndex) => {
   const todos = document.querySelector(".todos");
-  const itemOne = list[Number(fromIndex)];
-  const itemTwo = list[Number(toIndex)];
-  todos.appendChild(list[fromIndex].appendChild(itemTwo));
-  todos.appendChild(list[toIndex].appendChild(itemOne));
+  todos.appendChild(list[fromIndex]);
+  todos.appendChild(list[toIndex]);
 };
 
 const edit = (e) => {
@@ -106,8 +105,10 @@ const edit = (e) => {
   const editInput = document.createElement("input");
   editInput.className = "new-input";
   editInput.addEventListener("keyup", editValue);
+  if (newInput && e) return todo.removeChild(newInput);
   if (newInput) return editValue;
   todo.appendChild(editInput);
+  editInput.focus();
 };
 
 const editValue = (e) => {
@@ -131,6 +132,7 @@ const deleteElem = (e) => {
   const todo = e.target.parentElement.parentElement;
   const todos = document.querySelector(".todos");
   todos.removeChild(todo);
+  list.splice(list.indexOf(todo), 1);
 };
 
 input.focus();
