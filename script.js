@@ -76,20 +76,25 @@ const start = (e) => {
 
 const over = (e) => {
   e.preventDefault();
-  // console.log('over');
+  const todoUnder = e.target;
+  todoUnder.classList.add('scale');
 };
 
-const leave = () => {
-  // console.log('left');
+const leave = (e) => {
+  e.preventDefault();
+  const todoUnder = e.target;
+  todoUnder.classList.remove("scale");
 };
 
-const enter = () => {
-  // console.log('entered');
+const enter = (e) => {
+    
 };
 
 const drop = (e) => {
-  // console.log('dropped');
+  e.preventDefault();
   const dragEndIndex = e.target.getAttribute("data-index");
+  const todoUnder = e.target;
+  todoUnder.classList.remove("scale");
   swapItems(dragStartIndex, dragEndIndex);
 };
 
