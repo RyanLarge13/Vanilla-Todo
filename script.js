@@ -2,7 +2,7 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 let list = [];
 let dragStartIndex;
-console.log(window.innerWidth)
+console.log(window.innerWidth);
 
 const submitted = (e) => {
   e.preventDefault();
@@ -77,7 +77,7 @@ const start = (e) => {
 const over = (e) => {
   e.preventDefault();
   const todoUnder = e.target;
-  todoUnder.classList.add('scale');
+  todoUnder.classList.add("scale");
 };
 
 const leave = (e) => {
@@ -86,9 +86,7 @@ const leave = (e) => {
   todoUnder.classList.remove("scale");
 };
 
-const enter = (e) => {
-    
-};
+const enter = (e) => {};
 
 const drop = (e) => {
   e.preventDefault();
@@ -136,8 +134,11 @@ const crossOut = (e) => {
 const deleteElem = (e) => {
   const todo = e.target.parentElement.parentElement;
   const todos = document.querySelector(".todos");
+  todo.style.scale = "0";
+  setTimeout(() => {
   todos.removeChild(todo);
   list.splice(list.indexOf(todo), 1);
+  }, 500);
 };
 
 input.focus();

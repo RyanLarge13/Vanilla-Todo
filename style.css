@@ -32,16 +32,18 @@ body {
   background-repeat: no-repeat;
 }
 body::after {
-  content: '';
+  content: "";
   inset: 0;
   z-index: -1;
-  position: absolute;
-  background-color: rgba(0, 0, 0, .2);
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 h1 {
   font-size: 4em;
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
   color: #fff;
+  opacity: 0;
+  transition: 1s ease-in-out;
 }
 .container {
   width: 60vw;
@@ -54,7 +56,8 @@ form {
 label {
   font-size: 1.5em;
   color: #fff;
-  position: relative;
+  transform: translateX(-100vw);
+  transition: 1s ease-in-out;
 }
 .input-container label {
   align-self: flex-start;
@@ -68,16 +71,15 @@ input {
   outline: none;
 }
 button {
-  align-self: flex-end;
   font-size: 1.25em;
   border: none;
   border-radius: 0.25em;
-  outline: none;
   color: #000;
   background-color: #fff;
   padding: 0.5em 1.5em;
   font-weight: 600;
   transition: var(--trans-fast);
+  margin: 1em;
 }
 button:hover {
   cursor: pointer;
@@ -93,7 +95,7 @@ button:hover {
   border-radius: 0.75em;
   overflow-y: auto;
   justify-content: flex-start;
-  box-shadow: 0 .1em .5em 0 #000;
+  box-shadow: 0 0.1em 0.5em 0 #000;
 }
 .todos::-webkit-scrollbar {
   width: 3px;
@@ -113,22 +115,42 @@ button:hover {
   scale: 1.1;
 }
 .todo:nth-child(6n + 1) {
-  background-image: linear-gradient(45deg, rgb(102, 241, 60), rgb(63, 255, 239));
+  background-image: linear-gradient(
+    45deg,
+    rgb(102, 241, 60),
+    rgb(63, 255, 239)
+  );
 }
 .todo:nth-child(6n + 2) {
   background-image: linear-gradient(45deg, rgb(241, 60, 60), rgb(255, 149, 63));
 }
 .todo:nth-child(6n + 3) {
-  background-image: linear-gradient(45deg, rgb(205, 60, 241), rgb(255, 63, 153));
+  background-image: linear-gradient(
+    45deg,
+    rgb(205, 60, 241),
+    rgb(255, 63, 153)
+  );
 }
 .todo:nth-child(6n + 4) {
-  background-image: linear-gradient(45deg, rgb(241, 238, 60), rgb(153, 159, 252));
+  background-image: linear-gradient(
+    45deg,
+    rgb(241, 238, 60),
+    rgb(153, 159, 252)
+  );
 }
 .todo:nth-child(6n + 5) {
-  background-image: linear-gradient(45deg, rgb(54, 248, 158), rgb(63, 249, 255));
+  background-image: linear-gradient(
+    45deg,
+    rgb(54, 248, 158),
+    rgb(63, 249, 255)
+  );
 }
 .todo:nth-child(6n + 6) {
-  background-image: linear-gradient(45deg, rgb(253, 58, 221), rgb(230, 241, 241));
+  background-image: linear-gradient(
+    45deg,
+    rgb(253, 58, 221),
+    rgb(230, 241, 241)
+  );
 }
 @keyframes scale {
   0% {
@@ -175,7 +197,7 @@ i:hover {
   margin-left: 1em;
   max-height: 60%;
   max-width: 40%;
-  padding: .25em;
+  padding: 0.25em;
   font-size: 1em;
 }
 .over {
@@ -190,7 +212,7 @@ i:hover {
     font-size: 1em;
   }
   i {
-  	font-size: 1.25em;
+    font-size: 1.25em;
   }
   .container {
     width: 90vw;
@@ -212,7 +234,7 @@ i:hover {
     font-size: 1.5em;
   }
   i {
-  	font-size: 1.25em;
+    font-size: 1.25em;
   }
   .container {
     width: 90vw;
