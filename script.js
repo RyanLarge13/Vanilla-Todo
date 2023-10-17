@@ -98,8 +98,19 @@ const drop = (e) => {
 
 const swapItems = (fromIndex, toIndex) => {
   const todos = document.querySelector(".todos");
-  todos.appendChild(list[fromIndex]);
-  todos.appendChild(list[toIndex]);
+  const fromItem = list[fromIndex];
+  const toItem = list[toIndex];
+  const newList = list.slice();
+  newList[fromIndex] = toItem;
+  newList[toIndex] = fromItem;
+  todos.innerHTML = "";
+  newList.forEach((item, index) => {
+    todos.appendChild(item);
+  });
+  list = newList;
+  list.forEach((item, index) => {
+    item.setAttribute("data-index", index);
+  });
 };
 
 const edit = (e) => {
@@ -136,8 +147,8 @@ const deleteElem = (e) => {
   const todos = document.querySelector(".todos");
   todo.style.scale = "0";
   setTimeout(() => {
-  todos.removeChild(todo);
-  list.splice(list.indexOf(todo), 1);
+    todos.removeChild(todo);
+    list.splice(list.indexOf(todo), 1);
   }, 500);
 };
 
